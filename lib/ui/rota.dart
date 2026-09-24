@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -92,33 +93,29 @@ class _RotaState extends State<Rota> {
     );
   }
 
-Future<void> buscarRota(LatLng origem, LatLng destino) async {
-  final url = Uri.parse(
-    'https://router.project-osrm.org/route/v1/driving/'
-    '${origem.longitude},${origem.latitude};'
-    '${destino.longitude},${destino.latitude}'
-    '?overview=full&geometries=geojson'
-  );
+  Future<void> buscarRota(LatLng origem, LatLng destino) async {
+    final url = Uri.parse(
+      'https://router.project-osrm.org/route/v1/driving/'
+      '${origem.longitude},${origem.latitude};'
+      '${destino.longitude},${destino.latitude}'
+      '?overview=full&geometries=geojson',
+    );
 
-  final response = await http.get(url);
+    final response = await http.get(url);
 
-  if (response.statusCode == 200) {
-    final data = jsonDecode(response.body);
-    final coords = data['routes'][0]['geometry']['coordinates'] as List;
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      final coords = data['routes'][0]['geometry']['coordinates'] as List;
 
-    final pontos = coords.map((c) {
-      return LatLng(c[1].toDouble(), c[0].toDouble());
-    }).toList();
+      final pontos = coords.map((c) {
+        return LatLng(c[1].toDouble(), c[0].toDouble());
+      }).toList();
 
-    setState(() {
-      _Rotas = {
-        Polyline(
-          points: pontos,
-          color: Colors.blue,
-          strokeWidth: 5.0,
-        )
-      };
-    });
+      setState(() {
+        _Rotas = {
+          Polyline(points: pontos, color: Colors.blue, strokeWidth: 5.0),
+        };
+      });
+    }
   }
-}
 }
