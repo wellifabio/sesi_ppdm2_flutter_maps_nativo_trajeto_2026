@@ -4,7 +4,7 @@ App de estudos com Flutter Maps e API OSRM, com o objetivo de traçar trajetos n
 - style - tema claro e escuro pelo sistema
 - Splash com animação
 - Flutter Maps
-- Requisição de trajeto na API OSMR
+- Requisição de trajeto na API OSRM
 
 ## Tecnologias
 - Flutter
