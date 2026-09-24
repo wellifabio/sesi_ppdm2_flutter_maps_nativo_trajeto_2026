@@ -1,4 +1,29 @@
-# sesi_ppdm2_flutter_maps_nativo_trajeto_2026
+# flutter_maps_tracar_trajeto
+App de estudos com Flutter Maps e API OSRM, com o objetivo de traçar trajetos no mapa
+- Menu como widget
+- style - tema claro e escuro pelo sistema
+- Splash com animação
+- Flutter Maps
+- Requisição de trajeto na API OSMR
 
-A new Flutter project.
-# sesi_ppdm2_flutter_maps_nativo_trajeto_2026
+## Tecnologias
+- Flutter
+- Android Studio
+- API Google Maps
+- VsCode
+
+## Como testar
+- Clone o repositório
+- Abra com vscode
+- Insira uma **chave de API do Google Maps** no arquivo `android/app/src/main/AndroidManiest.xml`
+  - Também insira em `lib/ui/rota.dart` no local indicado
+- Instale as dependências e execute em um emulador
+```bash
+flutter pub get
+fltutter run
+```
+
+## Screenshots
+|![Print01](./assets/screenshots/slash.png)|![Print03](./assets/screenshots/linha.png)|
+|-|-|
+|![Print03](./assets/screenshots/menu.png)|![Print04](./assets/screenshots/rota.png)|
